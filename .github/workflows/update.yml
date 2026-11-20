@@ -48,7 +48,7 @@ jobs:
       - name: Checkout actual v1 YAML editors for integration regression
         uses: actions/checkout@v7
         with:
-          repository: wcaqrl/lazycat-action
+          repository: lazycat-adapter/lazycat-action
           ref: v1
           path: .lazycat-action/executor
           persist-credentials: false
@@ -73,7 +73,7 @@ jobs:
           set -euo pipefail
           git push --dry-run origin "HEAD:${GITHUB_REF_NAME}"
           if [[ -z "${LZC_API_TOKEN}" ]]; then
-            echo '::error::Configure LZC_API_TOKEN in jenkins-adapter Actions Secrets.'
+            echo '::error::Authorize the organization LZC_API_TOKEN secret for this repository.'
             exit 1
           fi
           response_file="${RUNNER_TEMP}/jenkins-review-access.json"
@@ -120,7 +120,7 @@ jobs:
 
   update:
     needs: validate
-    uses: wcaqrl/lazycat-action/.github/workflows/lazycat.yml@v1
+    uses: lazycat-adapter/lazycat-action/.github/workflows/lazycat.yml@v1
     with:
       config: lazycat-action.yml
       operation: auto

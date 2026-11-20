@@ -228,7 +228,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_workflow_reuses_v1_and_has_safe_manual_defaults(self):
         workflow = yaml.load((ROOT / ".github/workflows/update.yml").read_text(), Loader=yaml.BaseLoader)
-        self.assertEqual(workflow["jobs"]["update"]["uses"], "wcaqrl/lazycat-action/.github/workflows/lazycat.yml@v1")
+        self.assertEqual(workflow["jobs"]["update"]["uses"], "lazycat-adapter/lazycat-action/.github/workflows/lazycat.yml@v1")
         self.assertEqual(workflow["on"]["workflow_dispatch"]["inputs"]["dry-run"]["default"], "true")
         self.assertEqual(workflow["jobs"]["update"]["with"]["toolchains"], "docker")
 

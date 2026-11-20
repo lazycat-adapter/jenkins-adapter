@@ -2,7 +2,7 @@
 
 包名 **`peter.lazycat.app.jenkins`**。本仓库独立维护原 `wcaqrl/jenkins`
 的定制镜像与懒猫配置，复用
-[`lazycat-action@v1`](https://github.com/wcaqrl/lazycat-action)，无需修改 Jenkins 上游。
+[`lazycat-action@v1`](https://github.com/lazycat-adapter/lazycat-action)，无需修改 Jenkins 上游。
 构建与应用验证在 GitHub Runner 上完成，不占用本机或 LightOS 的 Docker 资源。
 
 ## 更新流程
@@ -49,8 +49,8 @@ Python 的补丁版本取决于锁定的 Python 镜像。运行验证报告记�
 ## 首次配置与执行
 
 1. 将本仓库代码提交、推送到 GitHub 的默认 `main` 分支。
-2. Settings → Secrets and variables → Actions → Repository secrets 中新增
-   **`LZC_API_TOKEN`**，填懒猫开发者 PAT。该账号须有 `peter.lazycat.app.jenkins`
+2. 在 `lazycat-adapter` 组织的 Actions secrets 中授权本仓库使用
+   **`LZC_API_TOKEN`**。该账号须有 `peter.lazycat.app.jenkins`
    的开发者或协作者权限；不需要把 PAT 配在 `lazycat-action` 仓库。
 3. Actions → **Update Jenkins for LazyCat** → **Run workflow**。
    默认勾选 `dry-run` 只发现版本、提取日志、计算方案。
