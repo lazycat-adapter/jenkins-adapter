@@ -112,8 +112,8 @@ application:
 services:
   jenkins:
     # 已通过微服上的工具链、账号、主题、插件及持久化验证的 amd64 镜像。
-    # upstream: ttl.sh/lazycat-jenkins-60da5d674f39:24h@sha256:543a6c80dc86d17343b1181c1c27a9ecdc221551f4bdc7b00a7a36680f0217e5
-    image: registry.lazycat.cloud/peter/lazycat-jenkins-60da5d674f39:81f4032ea9c2543f
+    # upstream: ttl.sh/lazycat-jenkins-d8d335197831:24h@sha256:b7f171ce909f2482ff70c3fffd6bb529465b8817442e7b14741733701a24f662
+    image: registry.lazycat.cloud/peter/lazycat-jenkins-d8d335197831:66c50d72d74a55ce
     run_as: "1000:1000"
     environment:
       JENKINS_URL: 'https://{{ .S.AppDomain }}/'
